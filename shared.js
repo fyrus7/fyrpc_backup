@@ -1,6 +1,4 @@
 
-const GAS_API = window.APP_CONFIG.GAS_API;
-
 let firstSearchDone = false;
 let enablePrint = false;
 let scanTimer;
