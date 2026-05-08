@@ -1329,8 +1329,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setView(saved);
 });
 
-const GAS_API = window.APP_CONFIG.GAS_API;
-
 function cleanApiBase() {
   return String(GAS_API || "").replace(/\/+$/, "");
 }
