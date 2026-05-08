@@ -452,7 +452,7 @@ async function collect() {
 //    }, 5000);
     showCollectSuccessCard(collectSummary, () => {
       clearSearch();
-      loadSummaryCard();
+   //   loadSummaryCard();
     });
   } catch (err) {
     console.error(err);
@@ -795,7 +795,7 @@ removeHold();
 // =========================
 showCollectSuccessCard(collectSummary, () => {
   clearSearch();
-  loadSummaryCard();
+//  loadSummaryCard();
 });
 
   } catch (err) {
@@ -1164,7 +1164,7 @@ async function validateProtectedPage() {
 
 // Override Apps Script page onload before it fires.
 window.onload = null;
-loadSummaryCard();
+//loadSummaryCard();
 window.addEventListener("load", validateProtectedPage);
 
 window.addEventListener("storage", function(e) {
@@ -1188,7 +1188,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (secretSummaryTapCount >= 7) {
         secretSummaryTapCount = 0;
         clearTimeout(secretSummaryTapTimer);
-        loadSummaryCard();
+    //    loadSummaryCard();
       }
     });
   }
@@ -1242,7 +1242,7 @@ document.addEventListener("keydown", function(e) {
 });
 
 
-
+/*
 function loadSummaryCard() {
   apiJson("/summary")
     .then(data => {
@@ -1321,3 +1321,4 @@ async function showCategoryBalance() {
       "<span style='color:red;'>Failed to load category</span>";
   }
 }
+*/
