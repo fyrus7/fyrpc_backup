@@ -305,11 +305,34 @@ function getCollectByText(a, b) {
 }
 
 function normalizeCollectRows(rows) {
-  return rows.map(r => ({
-    row: r.row,
-    user: (r.user || r.userProfile || localStorage.getItem("userProfile") || "SYSTEM").toUpperCase(),
-    collectBy: r.collectBy || getCollectByText(r.collectBy1, r.collectBy2)
-  }));
+  return rows.map(r => {
+    const userProfile = String(
+      r.userProfile ||
+      r.user ||
+      localStorage.getItem("userProfile") ||
+      "SYSTEM"
+    ).toUpperCase();
+
+    const collectBy1 = String(r.collectBy1 || "");
+    const collectBy2 = String(r.collectBy2 || "");
+    const collectBy = String(
+      r.collectBy ||
+      getCollectByText(collectBy1, collectBy2)
+    );
+
+    return {
+      row: r.row,
+
+      // format baru
+      user: userProfile,
+      collectBy,
+
+      // compatibility untuk GAS lama
+      userProfile,
+      collectBy1,
+      collectBy2
+    };
+  });
 }
 
 // GET PRINT DATA FROM COLLECT FOR SIZE
